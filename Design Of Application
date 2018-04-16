@@ -1,0 +1,19 @@
+#Design of Application:
+
+Application that takes city name as an input and then displays information about hotels located nearby city and the shopping malls that are located near the hotel that is choosen by the user.
+The application mainly uses the jersey Restful Web Service framework for consuming 3 rest web service in java.
+
+The application consumes 3 Rest Web Services:
+
+1.Determining the latitude and longitude of the city:
+  It is mandatory to know the latitude and longitude of the city in order to find the hotels nearby the city. For this, google API is used to find the latitude and longitude of the city.
+  The API used is https://maps.googleapis.com/maps/api/geocode/json?
+
+2.Finding the hotels nearby the city:
+  After getting the latitude and the longitude of the city, hotels in the city can be found out using google nearby API.The hotels are in radius of 500 from the city are only displayed
+  The API used is https://maps.googleapis.com/maps/api/place/nearbysearch/json?
+  Once the list of the hotels are displayed, user can select hotel of his own choice from the list by choosing the integer value that is associated with each of the hotel name.
+
+3.Finding the shopping malls near the hotel:
+  In order to find the shopping malls near the selected hotel, latitude and longitude is required of the hotel, so again google API of finding the latitude and longitude is used. After getting the latitude and longitude of the hotel, we can get the shopping malls near the hotel by using the foursquare API.
+  The API used is https://api.foursquare.com/v2/venues/search?
